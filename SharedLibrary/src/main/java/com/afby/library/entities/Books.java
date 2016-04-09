@@ -1,5 +1,6 @@
 package com.afby.library.entities;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import com.afby.library.common.constants.LibraryConstants;
@@ -10,6 +11,7 @@ import lombok.Data;
 @Document(indexName=LibraryConstants.INDEX_NAME,type=LibraryConstants.BOOK_TYPE)
 public class Books {
 
+	@Id
 	private Double id;
 	
 	private String bookName;
