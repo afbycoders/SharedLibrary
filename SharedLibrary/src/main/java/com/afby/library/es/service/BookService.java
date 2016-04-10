@@ -2,11 +2,15 @@ package com.afby.library.es.service;
 
 import java.util.List;
 
-import com.afby.library.entities.Books;
+import com.afby.library.entities.Book;
 
 public interface BookService {
 
-	List<Books> getAllBooks();
+	List<Book> getAllBooks();
 	
-	Books saveBook(Books book);
+	Book saveBook(Book book);
+	
+	Book updateBook(Book book);
+	
+	Book findBookById(Double id);
 }

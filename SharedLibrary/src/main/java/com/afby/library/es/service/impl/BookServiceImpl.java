@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.afby.library.common.constants.LibraryConstants;
 import com.afby.library.common.es.service.ElasticSearchCommonUtilities;
-import com.afby.library.entities.Books;
+import com.afby.library.entities.Book;
 import com.afby.library.es.service.BookService;
 import com.afby.library.repository.BookRepository;
 
@@ -25,17 +25,27 @@ public class BookServiceImpl implements BookService{
 	private ElasticSearchCommonUtilities esUtilities;
 	
 	@Override
-	public List<Books> getAllBooks() {
-		Iterable<Books> booksIterable=bookRepo.findAll();
-		List<Books> books =new ArrayList<>();
+	public List<Book> getAllBooks() {
+		Iterable<Book> booksIterable=bookRepo.findAll();
+		List<Book> books =new ArrayList<>();
 		booksIterable.forEach(e -> books.add(e));
 		return books;
 	}
 
 	@Override
-	public Books saveBook(Books book) {
+	public Book saveBook(Book book) {
 		book.setId(esUtilities.generateID(LibraryConstants.BOOK_TYPE));
 		return bookRepo.save(book);
+	}
+
+	@Override
+	public Book updateBook(Book book) {
+		return bookRepo.save(book);
+	}
+
+	@Override
+	public Book findBookById(Double id) {
+		return bookRepo.findOne(id);
 	}
 
 }

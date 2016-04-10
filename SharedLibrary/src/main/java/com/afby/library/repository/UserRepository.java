@@ -2,7 +2,8 @@ package com.afby.library.repository;
 
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
-import com.afby.library.entities.Book;
+import com.afby.library.entities.User;
 
-public interface BookRepository extends ElasticsearchRepository<Book, Double> {
+public interface UserRepository extends ElasticsearchRepository<User, Double>{
+
 }
